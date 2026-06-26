@@ -4,11 +4,11 @@
   <strong>AI-Powered Community Infrastructure Reporting Platform</strong>
 </p>
 
-CivicLens is a modern civic-tech platform designed to simplify the reporting of public infrastructure issues while improving communication between citizens and local authorities.
+CivicLens is an open-source platform that helps citizens report public infrastructure issues while enabling authorities to manage and resolve them more effectively.
 
-Whether it's a pothole, damaged streetlight, water leakage, or other public infrastructure concern, CivicLens provides a streamlined experience for documenting, tracking, and managing issues in a centralized platform.
+From potholes and damaged streetlights to water leaks and sanitation concerns, CivicLens provides a centralized platform for documenting, tracking, and monitoring civic issues within a community.
 
-The project is being developed with a strong focus on usability, scalable architecture, and practical AI integration to improve the quality of civic reporting.
+The project is built with a strong emphasis on usability, scalable software architecture, and practical AI integration to improve the quality of public infrastructure reporting.
 
 ---
 
@@ -20,7 +20,7 @@ The project is being developed with a strong focus on usability, scalable archit
 
 ## Contributing
 
-Contributions, suggestions, and discussions are welcome. Feel free to open an issue or submit a pull request.
+Contributions are welcome. If you'd like to improve CivicLens, feel free to open an issue or submit a pull request.
 
 ---
 
