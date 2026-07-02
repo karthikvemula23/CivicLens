@@ -1,0 +1,25 @@
+{
+  "name": "@CivicLens/db",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@CivicLens/env": "workspace:*",
+    "dotenv": "catalog:",
+    "mongoose": "^9.7.3",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@CivicLens/config": "workspace:*",
+    "typescript": "^6.0.3"
+  }
+}

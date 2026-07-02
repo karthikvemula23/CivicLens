@@ -1,0 +1,21 @@
+packages:
+  - apps/*
+  - packages/*
+allowBuilds:
+  esbuild: true
+  msgpackr-extract: true
+catalog:
+  dotenv: ^17.4.2
+  zod: ^4.4.3
+  "@types/node": ^26.0.1
+  "@asteasolutions/zod-to-openapi": ^8.5.0
+  better-auth: ^1.6.22
+  react: ^19.2.7
+  "@types/express": ^5.0.6
+  "@types/react": ^19.2.17
+  vitest: 4.1.8
+  "@vitest/ui": 4.1.8
+  "@vitest/coverage-v8": 4.1.8
+  jsdom: ^29.1.1
+  "@playwright/test": ^1.61.1
+  playwright: ^1.61.1
