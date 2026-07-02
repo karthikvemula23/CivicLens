@@ -1,0 +1,36 @@
+{
+  "name": "@CivicLens/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "openapi:verify": "bun src/verify-openapi.ts"
+  },
+  "dependencies": {
+    "@CivicLens/auth": "workspace:*",
+    "@CivicLens/db": "workspace:*",
+    "@CivicLens/env": "workspace:*",
+    "@asteasolutions/zod-to-openapi": "catalog:",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@CivicLens/config": "workspace:*",
+    "@playwright/test": "catalog:",
+    "@types/express": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
+    "jsdom": "catalog:",
+    "playwright": "catalog:",
+    "typescript": "^6.0.3",
+    "vitest": "catalog:"
+  }
+}
