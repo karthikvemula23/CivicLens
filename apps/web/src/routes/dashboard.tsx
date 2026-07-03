@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-
 import { authClient } from "@/lib/auth-client";
 
 export default function Dashboard() {
