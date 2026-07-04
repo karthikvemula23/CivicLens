@@ -4,7 +4,7 @@ CivicLens is an AI-powered civic issue reporting platform that enables citizens 
 
 The long-term goal is to streamline communication between citizens and authorities by combining location-aware reporting, image uploads, and AI-assisted issue classification.
 
-> 🚧 **Project Status:** Early development. The project foundation has been rebuilt using Better Fullstack and core features are currently under development.
+> **Project Status:** Early development. The project foundation has been rebuilt using Better Fullstack and core features are currently under development.
 
 ---
 
@@ -177,4 +177,3 @@ The project includes an engineering journal documenting architectural decisions,
 
 This project is built on top of the excellent [Better Fullstack](https://github.com/Marve10s/Better-Fullstack) template.
 
----
