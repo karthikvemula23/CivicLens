@@ -9,6 +9,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -45,6 +46,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const location = useLocation();
+  const isAuthPage = location.pathname === "/login";
+
   return (
     <ThemeProvider
       attribute="class"
@@ -52,10 +56,14 @@ export default function App() {
       disableTransitionOnChange
       storageKey="vite-ui-theme"
     >
-      <div className="grid grid-rows-[auto_1fr] h-svh">
-        <Header />
+      {isAuthPage ? (
         <Outlet />
-      </div>
+      ) : (
+        <div className="grid h-svh grid-rows-[auto_1fr]">
+          <Header />
+          <Outlet />
+        </div>
+      )}
       <Toaster richColors />
     </ThemeProvider>
   );
