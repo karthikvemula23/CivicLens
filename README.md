@@ -1,16 +1,31 @@
 # CivicLens
 
-CivicLens is an AI-powered civic issue reporting platform that enables citizens to report public infrastructure problems such as potholes, damaged roads, broken street lights, water leaks, garbage accumulation, and other municipal issues.
+CivicLens is an AI-powered civic issue reporting platform that enables citizens to report public infrastructure problems such as potholes, damaged roads, broken street lights, water leaks, garbage accumulation, drainage issues, and other municipal concerns.
 
-The long-term goal is to streamline communication between citizens and authorities by combining location-aware reporting, image uploads, and AI-assisted issue classification.
+The platform combines modern web technologies with AI capabilities to create a reliable, scalable, and user-friendly reporting experience. It is built using **Better Fullstack** with a production-ready architecture that emphasizes maintainability, scalability, and type safety.
 
-> **Project Status:** Early development. The project foundation has been rebuilt using Better Fullstack and core features are currently under development.
+> **Project Status:** Active development. Core project infrastructure, authentication, and database integration have been completed.
 
 ---
 
-## Tech Stack
+# Features
 
-### Frontend
+## Implemented
+
+- Secure email and password authentication
+- User registration and sign in
+- Session management
+- Protected routes
+- MongoDB Atlas integration
+- Responsive authentication interface
+- Light and dark theme support
+- Modern monorepo architecture
+
+---
+
+# Tech Stack
+
+## Frontend
 
 - React 19
 - React Router
@@ -22,23 +37,23 @@ The long-term goal is to streamline communication between citizens and authoriti
 - Zod
 - Framer Motion
 
-### Backend
+## Backend
 
 - Node.js
 - Express
-- OpenAPI
 - Better Auth
+- OpenAPI
 - MongoDB Atlas
 - Mongoose
 
-### Services
+## Services
 
 - UploadThing
 - Cloudinary
 - Resend
 - Vercel AI SDK
 
-### Tooling
+## Tooling
 
 - pnpm
 - GitHub Actions
@@ -48,39 +63,62 @@ The long-term goal is to streamline communication between citizens and authoriti
 
 ---
 
-## Features (Planned)
+# Authentication
 
-- User authentication
-- Civic issue reporting
-- Image uploads
-- AI-assisted issue categorization
-- Interactive maps
-- Report tracking
-- Community voting and engagement
-- Authority dashboard
-- Real-time status updates
+CivicLens uses **Better Auth** with MongoDB Atlas for secure authentication.
+
+Current authentication features include:
+
+- Email and password registration
+- Secure sign in
+- Session management
+- Protected routes
+- Secure sign out
 
 ---
 
-## Getting Started
+# Project Structure
 
-### Prerequisites
+```text
+CivicLens/
+├── apps/
+│   ├── web/                 # React frontend
+│   └── server/              # Express backend
+│
+├── packages/
+│   ├── api/                 # Shared API layer
+│   ├── auth/                # Authentication
+│   ├── config/              # Shared configuration
+│   ├── db/                  # Database
+│   └── env/                 # Environment configuration
+│
+├── .github/                 # GitHub workflows
+├── AGENTS.md
+├── CLAUDE.md
+├── package.json
+├── pnpm-workspace.yaml
+└── README.md
+```
 
-- Node.js 24+
-- pnpm 11+
+---
+
+# Getting Started
+
+## Prerequisites
+
+- Node.js 24 or later
+- pnpm 11 or later
 - MongoDB Atlas account
-- Cloudinary account
-- UploadThing account
-- Resend account
 
 ---
 
-### Installation
+## Installation
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/karthikvemula23/CivicLens.git
+
 cd CivicLens
 ```
 
@@ -92,19 +130,30 @@ pnpm install
 
 ---
 
-### Environment Variables
+## Environment Variables
 
-Create the required `.env` files and configure:
+Create the required `.env` files before running the application.
 
-- MongoDB Atlas
-- Better Auth
-- Cloudinary
-- UploadThing
-- Resend
+Example variables:
+
+```env
+DATABASE_URL=
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+CORS_ORIGIN=
+VITE_SERVER_URL=
+UPLOADTHING_TOKEN=
+CLOUDINARY_URL=
+RESEND_API_KEY=
+```
+
+Refer to the corresponding service documentation to obtain the required credentials.
 
 ---
 
-### Run the Project
+## Running the Project
+
+Start the development server:
 
 ```bash
 pnpm dev
@@ -112,68 +161,69 @@ pnpm dev
 
 Applications:
 
-- Frontend → http://localhost:5173
-- Backend → http://localhost:3000
+- **Frontend:** http://localhost:5173
+- **Backend:** http://localhost:3000
 
 ---
 
-## Project Structure
+# Development
 
+Useful commands:
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development
+pnpm dev
+
+# Type checking
+pnpm check-types
+
+# Build the project
+pnpm build
+
+# Run tests
+pnpm test
 ```
-CivicLens/
-├── apps/
-│   ├── web/             # React frontend
-│   └── server/          # Express backend
-│
-├── packages/
-│   ├── api/             # Shared API layer
-│   ├── auth/            # Authentication
-│   ├── config/          # Shared TypeScript configuration
-│   ├── db/              # Database models
-│   └── env/             # Environment configuration
-│
-├── docs/
-│   └── journal/         # Engineering journal
-│
-└── .github/
-    └── workflows/       # CI workflows
+
+---
+
+# Architecture
+
+```text
+React Client
+      │
+      ▼
+React Router
+      │
+      ▼
+Express API
+      │
+      ▼
+Better Auth
+      │
+      ▼
+MongoDB Atlas
 ```
 
 ---
 
-## Available Scripts
+# Contributing
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start frontend and backend |
-| `pnpm build` | Build all packages |
-| `pnpm dev:web` | Start only the frontend |
-| `pnpm dev:server` | Start only the backend |
-| `pnpm check-types` | Run TypeScript checks |
-| `pnpm prepare` | Initialize Husky hooks |
+Contributions, suggestions, and bug reports are welcome.
 
----
+If you would like to contribute:
 
-## Documentation
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Open a Pull Request.
 
-The project includes an engineering journal documenting architectural decisions, implementation progress, and lessons learned.
-
-- `docs/journal/`
+Please ensure the project builds successfully before submitting a pull request.
 
 ---
 
-## Development Workflow
+# License
 
-- Create a feature branch
-- Open an issue when appropriate
-- Implement changes
-- Open a Pull Request
-- Merge after review
-- Document significant architectural decisions in the engineering journal
-
----
-
-## Built With
-
-This project is built on top of the excellent [Better Fullstack](https://github.com/Marve10s/Better-Fullstack) template.
-
+This project is licensed under the MIT License.
