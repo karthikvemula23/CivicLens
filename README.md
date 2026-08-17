@@ -1,124 +1,160 @@
 # CivicLens
 
-CivicLens is an AI-powered civic issue reporting platform that enables citizens to report public infrastructure problems such as potholes, damaged roads, broken street lights, water leaks, garbage accumulation, drainage issues, and other municipal concerns.
+CivicLens is a civic issue reporting platform designed to improve communication between citizens and local authorities. It enables users to report public infrastructure problems such as potholes, damaged roads, broken street lights, water leaks, garbage accumulation, and other municipal issues.
 
-The platform combines modern web technologies with AI capabilities to create a reliable, scalable, and user-friendly reporting experience. It is built using **Better Fullstack** with a production-ready architecture that emphasizes maintainability, scalability, and type safety.
+The platform is being developed around **location-aware reporting, image uploads, AI-assisted issue classification, and transparent report tracking**.
 
-> **Project Status:** Active development. Core project infrastructure, authentication, and database integration have been completed.
-
----
-
-# Features
-
-## Implemented
-
-- Secure email and password authentication
-- User registration and sign in
-- Session management
-- Protected routes
-- MongoDB Atlas integration
-- Responsive authentication interface
-- Light and dark theme support
-- Modern monorepo architecture
+> **Project Status:** Early development. The project foundation has been rebuilt as a production-oriented monorepo using Better Fullstack. Core application features are currently under development.
 
 ---
 
-# Tech Stack
+## Tech Stack
 
-## Frontend
+### Frontend
 
-- React 19
-- React Router
-- TypeScript
-- Tailwind CSS
-- shadcn/ui
-- Zustand
-- React Hook Form
-- Zod
-- Framer Motion
+* React 19
+* React Router
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* Zustand
+* React Hook Form
+* Zod
+* Framer Motion
 
-## Backend
+### Backend
 
-- Node.js
-- Express
-- Better Auth
-- OpenAPI
-- MongoDB Atlas
-- Mongoose
+* Node.js
+* Express
+* OpenAPI
+* Better Auth
+* MongoDB Atlas
+* Mongoose
 
-## Services
+### Services
 
-- UploadThing
-- Cloudinary
-- Resend
-- Vercel AI SDK
+* UploadThing — file uploads
+* Cloudinary — image management
+* Resend — transactional email
+* Vercel AI SDK — AI integration
 
-## Tooling
+### Development & Testing
 
-- pnpm
-- GitHub Actions
-- Husky
-- Vitest
-- Playwright
-
----
-
-# Authentication
-
-CivicLens uses **Better Auth** with MongoDB Atlas for secure authentication.
-
-Current authentication features include:
-
-- Email and password registration
-- Secure sign in
-- Session management
-- Protected routes
-- Secure sign out
+* pnpm
+* GitHub Actions
+* Husky
+* Vitest
+* Playwright
 
 ---
 
-# Project Structure
+## Current Development
+
+The project foundation currently focuses on establishing a maintainable full-stack architecture and development workflow.
+
+### Foundation
+
+* Monorepo architecture using pnpm workspaces
+* React frontend with React Router
+* Express backend
+* OpenAPI-based API layer
+* MongoDB Atlas with Mongoose
+* Better Auth authentication infrastructure
+* Shared TypeScript configuration and environment management
+* CI workflows with GitHub Actions
+* Git hooks with Husky
+* Unit and end-to-end testing infrastructure
+
+---
+
+## Planned Features
+
+### Citizen Platform
+
+* User registration and authentication
+* Civic issue reporting
+* Image uploads
+* Location-aware reports
+* AI-assisted issue categorization
+* Interactive maps
+* Report tracking
+* Community voting and engagement
+
+### Authority Platform
+
+* Authority dashboard
+* Issue management
+* Report status updates
+* Issue prioritization
+* Location-based issue analysis
+* Real-time status updates
+
+### AI Integration
+
+* Automatic issue classification from uploaded images
+* Category and severity detection
+* AI-assisted report processing
+* Future intelligent recommendations for authorities
+
+> AI-assisted functionality is part of the planned application layer and should not be considered fully implemented in the current development stage.
+
+---
+
+## Architecture
+
+CivicLens follows a modular full-stack architecture designed to keep application concerns separated while allowing shared functionality across the system.
 
 ```text
-CivicLens/
-├── apps/
-│   ├── web/                 # React frontend
-│   └── server/              # Express backend
-│
-├── packages/
-│   ├── api/                 # Shared API layer
-│   ├── auth/                # Authentication
-│   ├── config/              # Shared configuration
-│   ├── db/                  # Database
-│   └── env/                 # Environment configuration
-│
-├── .github/                 # GitHub workflows
-├── AGENTS.md
-├── CLAUDE.md
-├── package.json
-├── pnpm-workspace.yaml
-└── README.md
+┌──────────────────────────────┐
+│          React Web            │
+│     React Router + UI         │
+└──────────────┬───────────────┘
+               │
+               │ OpenAPI
+               ▼
+┌──────────────────────────────┐
+│       Express Server          │
+│     API + Application Logic   │
+└───────┬──────────┬───────────┘
+        │          │
+        │          └──────────────────┐
+        ▼                             ▼
+┌───────────────┐              ┌───────────────┐
+│   Mongoose    │              │ External       │
+│               │              │ Services       │
+└───────┬───────┘              └───────────────┘
+        │                       UploadThing
+        ▼                       Cloudinary
+┌───────────────┐              Resend
+│ MongoDB Atlas │              Vercel AI SDK
+└───────────────┘
 ```
 
----
-
-# Getting Started
-
-## Prerequisites
-
-- Node.js 24 or later
-- pnpm 11 or later
-- MongoDB Atlas account
+Authentication is handled through Better Auth, while shared configuration, database models, API functionality, and environment management are organized into reusable packages within the monorepo.
 
 ---
 
-## Installation
+## Getting Started
+
+### Prerequisites
+
+Make sure the following are installed and configured:
+
+* Node.js 24+
+* pnpm 11+
+* MongoDB Atlas account
+* Cloudinary account
+* UploadThing account
+* Resend account
+
+---
+
+### Installation
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/karthikvemula23/CivicLens.git
-
 cd CivicLens
 ```
 
@@ -130,100 +166,161 @@ pnpm install
 
 ---
 
-## Environment Variables
+### Environment Variables
 
-Create the required `.env` files before running the application.
+Create the required `.env` files for the relevant applications and packages.
 
-Example variables:
+Configure the required credentials and connection details for:
 
-```env
-DATABASE_URL=
-BETTER_AUTH_SECRET=
-BETTER_AUTH_URL=
-CORS_ORIGIN=
-VITE_SERVER_URL=
-UPLOADTHING_TOKEN=
-CLOUDINARY_URL=
-RESEND_API_KEY=
-```
+* MongoDB Atlas
+* Better Auth
+* Cloudinary
+* UploadThing
+* Resend
 
-Refer to the corresponding service documentation to obtain the required credentials.
+Keep environment files containing secrets out of version control.
 
 ---
 
-## Running the Project
+### Run the Project
 
-Start the development server:
+Start the development environment:
 
 ```bash
 pnpm dev
 ```
 
-Applications:
+By default:
 
-- **Frontend:** http://localhost:5173
-- **Backend:** http://localhost:3000
+* **Frontend:** http://localhost:5173
+* **Backend:** http://localhost:3000
 
----
-
-# Development
-
-Useful commands:
+Individual applications can also be started separately:
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Start development
-pnpm dev
-
-# Type checking
-pnpm check-types
-
-# Build the project
-pnpm build
-
-# Run tests
-pnpm test
+pnpm dev:web
+pnpm dev:server
 ```
 
 ---
 
-# Architecture
+## Project Structure
 
 ```text
-React Client
-      │
-      ▼
-React Router
-      │
-      ▼
-Express API
-      │
-      ▼
-Better Auth
-      │
-      ▼
-MongoDB Atlas
+CivicLens/
+├── apps/
+│   ├── web/                  # React frontend
+│   └── server/               # Express backend
+│
+├── packages/
+│   ├── api/                  # Shared API layer
+│   ├── auth/                 # Authentication
+│   ├── config/               # Shared configuration
+│   ├── db/                   # Database models and configuration
+│   └── env/                  # Environment configuration
+│
+├── docs/
+│   └── journal/              # Engineering journal
+│
+├── .github/
+│   └── workflows/            # CI workflows
+│
+├── package.json
+├── pnpm-workspace.yaml
+└── README.md
 ```
 
 ---
 
-# Contributing
+## Available Scripts
 
-Contributions, suggestions, and bug reports are welcome.
-
-If you would like to contribute:
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Open a Pull Request.
-
-Please ensure the project builds successfully before submitting a pull request.
+| Command            | Description                         |
+| ------------------ | ----------------------------------- |
+| `pnpm dev`         | Start the frontend and backend      |
+| `pnpm dev:web`     | Start only the frontend             |
+| `pnpm dev:server`  | Start only the backend              |
+| `pnpm build`       | Build all applications and packages |
+| `pnpm check-types` | Run TypeScript type checks          |
+| `pnpm prepare`     | Initialize Husky hooks              |
 
 ---
 
-# License
+## Testing
 
-This project is licensed under the MIT License.
+CivicLens uses **Vitest** for unit-level testing and **Playwright** for end-to-end testing.
+
+Run the project's test commands according to the configured workspace scripts.
+
+The testing setup is intended to provide coverage across both application logic and critical user workflows as development progresses.
+
+---
+
+## Documentation
+
+CivicLens maintains an engineering journal documenting the development process, including:
+
+* Architectural decisions
+* Implementation progress
+* Technical problems and solutions
+* Development experiments
+* Lessons learned
+
+Documentation is maintained under:
+
+```text
+docs/journal/
+```
+
+---
+
+## Development Workflow
+
+Development follows a feature-oriented Git workflow:
+
+1. Create a dedicated feature branch.
+2. Open an issue when appropriate.
+3. Implement and test the change.
+4. Run type checks and relevant tests.
+5. Open a Pull Request.
+6. Review and address feedback.
+7. Merge the completed change.
+8. Document significant architectural decisions in the engineering journal.
+
+Example branch naming:
+
+```text
+feat/issue-reporting
+feat/ai-classification
+fix/auth-session
+refactor/report-service
+```
+
+---
+
+## Roadmap
+
+* [x] Rebuild project foundation using Better Fullstack
+* [x] Set up pnpm workspace monorepo
+* [x] Configure React frontend
+* [x] Configure Express backend
+* [x] Set up MongoDB Atlas and Mongoose
+* [x] Establish authentication infrastructure
+* [x] Configure development tooling and CI
+* [ ] Implement user authentication flows
+* [ ] Implement civic issue reporting
+* [ ] Integrate image uploads
+* [ ] Implement location and map functionality
+* [ ] Add AI-assisted issue classification
+* [ ] Implement report tracking
+* [ ] Build authority dashboard
+* [ ] Add community engagement features
+* [ ] Implement real-time status updates
+* [ ] Production deployment
+
+---
+
+## Built With
+
+CivicLens is built on top of the [Better Fullstack](https://github.com/Marve10s/Better-Fullstack) template, which provides the foundation for the project's modern full-stack architecture and development workflow.
+
+The project is being progressively customized and extended to meet the specific requirements of the CivicLens platform.
